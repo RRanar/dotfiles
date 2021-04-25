@@ -32,7 +32,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id picom
 exec_always --no-startup-id setxkbmap us,ru,ua -option 'grp:alt_shift_toggle' 
 exec --no-startup-id nitrogen --restore &
-exec_always --no-startup-id /home/dtbear/.config/polybar/launch.sh
+exec_always --no-startup-id /home/dtbear/.config/polybar/launch.sh --grayblocks
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
