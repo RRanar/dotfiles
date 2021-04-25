@@ -3,7 +3,7 @@
 ps aux | grep hideIt | grep -v grep | awk '{print $2}' | xargs kill
 killall -q polybar
 
-polybar example -l warning  > /dev/null 2>&1 &
+polybar example  > /dev/null 2>&1 &
 
 sleep 1
 
