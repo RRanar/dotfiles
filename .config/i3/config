@@ -58,10 +58,14 @@ bindsym $mod+q kill
 
 bindsym $alt + space exec --no-startup-id "rofi -theme glue_pro_blue -font 'hack 10' -show drun "
 bindsym $alt + Tab exec --no-startup-id  "rofi -theme glue_pro_blue - font 'hack 10' -show window"
+bindsym --release Print exec "scrot -m '/home/dtbear/Pictures/screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png'"
+bindsym --release Shift+Print exec "scrot -s '/home/dtbear/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"
+bindsym --release $mod+Shift+Print exec "scrot -u -d 4 '/home/dtbear/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"
 
 # Add to scratchpad
-bindsym $alt + ctrl move scratchpad
-
+bindsym $alt + s  move scratchpad
+bindsym $alt + Shift + s scratchpad show 
+bindsym $mod + o exec pcmanfm
 
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
