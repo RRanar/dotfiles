@@ -6,6 +6,7 @@ themes=(`ls --hide="launch.sh" $dir`)
 launch_bar() {
 	# Terminate already running bar instances
 	killall -q polybar
+	ps -ef | grep hideIt | grep -v grep | awk '{print $2}' | xargs kill
 
 	# Wait until the processes have been shut down
 	while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
@@ -21,7 +22,7 @@ launch_bar() {
 
 		sleep 1 
 
-		hideIt.sh -N "^polybar-example" -p 3 -d top -H > /dev/null 2>&1 & 	
+		hideIt.sh -N "^polybar-example" -p 1 -d top -H > /dev/null 2>&1 & 	
 	fi
 }
 
