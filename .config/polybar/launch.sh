@@ -1,16 +1,12 @@
 #!/bin/bash
-
-
-ps -ef | grep hideIt | grep -v grep | awk '{print $2}' | xargs kill
-# Завершить текущие экземпляры polybar
-killall -q polybar
-# Ожидание полного завершения работы процессов
-while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
-
 # Запуск Polybar со стандартным расположением конфигурационного файла в ~/.config/polybar/config
-polybar example
+ps aux | grep hideIt | grep -v grep | awk '{print $2}' | xargs kill
+killall -q polybar
 
+polybar example -l warning  > /dev/null 2>&1 &
 
-hideIt.sh -N "^polybar-example" -p 3 -d top -H
+sleep 1
+
+hideIt.sh -N '^polybar-example' -p 3 -d top -H > /dev/null 2>&1 &
 
 echo "Polybar загрузился..."
