@@ -7,7 +7,6 @@ launch_bar() {
 	# Terminate already running bar instances
 	killall -q polybar
 	ps -ef | grep hideIt | grep -v grep | awk '{print $2}' | xargs kill
-
 	# Wait until the processes have been shut down
 	while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
@@ -18,11 +17,11 @@ launch_bar() {
 	elif [[ "$style" == "pwidgets" ]]; then
 		bash "$dir"/pwidgets/launch.sh --main
 	else
-		polybar -q main -c "$dir/$style/config.ini" &
+		polybar -q main -c "$dir/$style/config.ini" &	
 
-		sleep 1 
+		sleep 1
 
-		hideIt.sh -N "^polybar-example" -p 1 -d top -H > /dev/null 2>&1 & 	
+		hideIt.sh -N "^polybar-example" -p 1 -d top -H > /dev/null 2>&1 &
 	fi
 }
 
