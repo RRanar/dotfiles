@@ -22,6 +22,10 @@ launch_bar() {
 		sleep 1
 
 		hideIt.sh -N "^polybar-example" -p 1 -d top -H > /dev/null 2>&1 &
+		
+		sleep 1
+
+		hideIt.sh -N "^Polybar tray*"  --region 0x1080+10+-40 -d left -H > /dev/null 2>&1 &
 	fi
 }
 
