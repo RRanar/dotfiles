@@ -29,11 +29,13 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+exec --no-startup-id dbus-run-session i3
 exec --no-startup-id picom
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec_always --no-startup-id setxkbmap us,ru,ua -option 'grp:alt_shift_toggle' 
 exec --no-startup-id nitrogen --restore &
 exec_always --no-startup-id /home/dtbear/.config/polybar/launch.sh --grayblocks
+exec --no-startup-id pacmanfm --desktop &
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -49,7 +51,7 @@ focus_follows_mouse no
 gaps inner 10
 gaps outer 4
 for_window [class="*.*"] border none
-
+for_window [class="Transmission.*"] floating enable
 # start a terminal
 bindsym $mod+Return exec terminator
 
